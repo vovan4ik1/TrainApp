@@ -1,0 +1,24 @@
+﻿@model TrainApp.Models.Stations
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center text-primary">Деталі станції</h1>
+
+<div class="card shadow-lg p-4 mb-4 bg-white rounded">
+    <h4 class="text-secondary">Інформація про станцію</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4 fw-bold">Назва станції</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.StationName)</dd>
+
+        <dt class="col-sm-4 fw-bold">Регіон</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Region)</dd>
+    </dl>
+
+    <div class="d-flex justify-content-between mt-4">
+        <a asp-action="Index" class="btn btn-outline-secondary">Назад</a>
+        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Редагувати</a>
+    </div>
+</div>

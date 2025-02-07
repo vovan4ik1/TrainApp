@@ -1,0 +1,60 @@
+﻿@model TrainApp.Models.Schedules
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Stations/Edit.cshtml";
+}
+
+<h1>Редагувати</h1>
+
+<h4>Розклад</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="TrainRouteId" class="control-label"></label>
+                <input asp-for="TrainRouteId" class="form-control" />
+                <span asp-validation-for="TrainRouteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartureTime" class="control-label"></label>
+                <input asp-for="DepartureTime" class="form-control" />
+                <span asp-validation-for="DepartureTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ArrivalTime" class="control-label"></label>
+                <input asp-for="ArrivalTime" class="form-control" />
+                <span asp-validation-for="ArrivalTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OriginStationId" class="control-label"></label>
+                <select asp-for="OriginStationId" class="form-control" asp-items="ViewBag.OriginStationId"></select>
+                <span asp-validation-for="OriginStationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DestinationStationId" class="control-label"></label>
+                <select asp-for="DestinationStationId" class="form-control" asp-items="ViewBag.DestinationStationId"></select>
+                <span asp-validation-for="DestinationStationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DelayId" class="control-label"></label>
+                <input asp-for="DelayId" class="form-control" />
+                <span asp-validation-for="DelayId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
